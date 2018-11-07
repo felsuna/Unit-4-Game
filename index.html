@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Crystals Collector</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet/css" href="assets.css.reset.css">
+    <link rel="stylesheet/css" href="assets.css.style.css">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Crystals Collector!</h1>
+
+        <p>You will be given a random number at the start of the game.
+        </p>
+        <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your
+            total
+            score.
+        </p>
+        <p>You win the game by matching your total score to the random number, you lose the game if your total score
+            goes
+            above the random number.
+        </p>
+        <p>The value of each crystal is hidden from you until you click on it.
+        </p>
+        <p>Each time when the game starts, the game will change the values of each crystal.
+        </p>
+
+        <div id="computer-choice"></div>
+
+        <div id="user-wins"></div>
+        <div id="user-losses"></div>
+
+        <div class="row">
+            <!-- <div id="crystals"></div> -->
+            <button>
+                <div class="crystals">
+                    <img src="assets/images/Aquamarine.png" alt="Aquamarine">
+                </div>
+            </button>
+            <button>
+                <div class="crystals">
+                    <img src="assets/images/Citrine.png" alt="Citrine">
+                </div>
+            </button>
+            <button>
+                <div class="crystals">
+                    <img src="assets/images/diamond_gem_ruby.png" alt="diamond_gem_ruby">
+                </div>
+            </button>
+            <button>
+                <div class="crystals">
+                    <img src="assets/images/Emerald.png" alt="Emerald">
+                </div>
+            </button>
+        </div>
+
+        <div id="total-score"></div>
+        <div id="user-guesses"></div>
+
+        <script type="text/javascript" src="assets/javascript/game.js"></script>
+    </div>
+</body>
+
+</html>
