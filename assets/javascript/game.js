@@ -6,6 +6,7 @@ var counter = 0;
 var userGuess = 0;
 var crystalArray = ['assets/images/Aquamarine.png', 'assets/images/Citrine.png', 'assets/images/diamond_gem_ruby.png', 'assets/images/Emerald.png'];
 
+//Assigning random number to images, between 1 and 12.
 for (var i = 0; i <crystalArray.length; i++) {
     var newCrystal = $('<img>');
     newCrystal.attr('src', crystalArray[i]);
@@ -14,10 +15,12 @@ for (var i = 0; i <crystalArray.length; i++) {
     $('#crystals').append(newCrystal);
 }
 
+//Crystal click function, and also adds the integer each time a crystal is clicked.
 $('.crystals').on('click', function(){
     var value = parseInt($(this).attr('data-random'));
     counter += value;
-    $("#total-score").text("Your total score: " + counter + value);
+    $("#total-score").text("Your total score: " + counter);
+    $("#user-guesses").text(userGuess + value);
     console.log(counter);
     console.log(value);
 })
@@ -34,16 +37,17 @@ if (computerChoice === ''){
     $("#computer-choice").text(computerChoice + random);
     console.log(random);
 }
+
 //If user's total equals the computer's choice, we add 1 point to wins and resets the game.
-if (userGuess === computerChoice) {
+if (counter === computerChoice) {
     wins++;
     computerChoice = '';
-    counter = '';
+    counter = 0;
     userGuess = 0;
 }else {
     losses++;
     computerChoice = '';
-    counter = '';
+    counter = 0;
     userGuess = 0;
 }
 
