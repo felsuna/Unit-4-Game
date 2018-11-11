@@ -50,8 +50,7 @@ $('.crystals').on('click', function () {
     totalScore += crystalValue;
     $("#total-score").text("Your total score: " + totalScore);
     $("#crystal-number").text(crystalNumber + crystalValue);
-    console.log(crystalValue)
-
+    
     // Score counter and game resets.
     if (totalScore === targetNumber) {
         wins++;
