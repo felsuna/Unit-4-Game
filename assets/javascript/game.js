@@ -25,7 +25,19 @@ for (var i = 0; i < crystalArray.length; i++) {
     $('#crystals').append(newCrystal);
 }
 
-function reset(){
+//Function to reset game. 
+// I could not figure out how to get the crystal values to reset.  
+// Tried to .empty the crystal div and re-add my fo-loop and game stopped working once I won or loss.
+// This is what I tried to enter in my reset function:
+// $('#crystals').empty();
+// for (var i = 0; i < crystalArray.length; i++) {
+//     var newCrystal = $('<img>');
+//     newCrystal.attr('src', crystalArray[i]);
+//     newCrystal.attr('data-random', Math.ceil(Math.random() * 12));
+//     newCrystal.attr('class', 'crystals');
+//     $('#crystals').append(newCrystal);
+// }
+function reset() {
     totalScore = 0;
     crystalNumber = 0;
     targetNumber = Math.floor(Math.random() * 102) + 19;
@@ -48,7 +60,7 @@ $('.crystals').on('click', function () {
         reset();
     }
     else if (totalScore > targetNumber) {
-        losses++;   
+        losses++;
         $("#user-losses").text("Losses: " + losses);
         // $('#crystals').empty(newCrystal);
         reset();
