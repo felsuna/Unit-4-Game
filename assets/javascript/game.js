@@ -1,5 +1,4 @@
-var computerChoice = Math.floor(Math.random() * 102) + 19;;
-// var userOption = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+var targetNumber = Math.floor(Math.random() * 102) + 19;
 var wins = 0;
 var losses = 0;
 var totalScore = 0;
@@ -11,13 +10,13 @@ var crystalArray = [
     'assets/images/Emerald.png'
 ];
 
-$("#computer-choice").text(computerChoice);
+$("#target-number").text("Target number: " + targetNumber);
 $("#user-wins").text("Wins: " + wins);
 $("#user-losses").text("Losses: " + losses);
 $("#total-score").text("Your total score: " + totalScore);
 $("#crystal-number").text(crystalNumber);
 
-//Assigning random number to images, between 1 and 12.
+//Creating images to DOM and assigning random number to images, between 1 and 12.
 for (var i = 0; i < crystalArray.length; i++) {
     var newCrystal = $('<img>');
     newCrystal.attr('src', crystalArray[i]);
@@ -26,35 +25,34 @@ for (var i = 0; i < crystalArray.length; i++) {
     $('#crystals').append(newCrystal);
 }
 
-$("#computer-choice").text("Cp Choice" + computerChoice);
+function reset(){
+    totalScore = 0;
+    crystalNumber = 0;
+    targetNumber = Math.floor(Math.random() * 102) + 19;
+    $("#target-number").text("Target number: " + targetNumber);
+}
 
-
-//Crystal click function, and also adds the integer each time a crystal is clicked.
+//Crystal click-function, and also adds the integer each time a crystal is clicked.
 $('.crystals').on('click', function () {
     var crystalValue = parseInt($(this).attr('data-random'));
     totalScore += crystalValue;
     $("#total-score").text("Your total score: " + totalScore);
     $("#crystal-number").text(crystalNumber + crystalValue);
+    console.log(crystalValue)
 
-    if (totalScore === computerChoice){
+    // Score counter and game resets.
+    if (totalScore === targetNumber) {
         wins++;
-        totalScore = 0;
-        crystalNumber = 0;
-        crystalArray = [];
-        computerChoice = Math.floor(Math.random() * 102) + 19;
-        $("#computer-choice").text("Cp Choice" + computerChoice);
-        $("#user-wins").text("Wins: " + wins);       
+        $("#user-wins").text("Wins: " + wins);
+        // $('#crystals').empty(newCrystal);
+        reset();
     }
-    else if (totalScore > computerChoice){
-        totalScore = 0;
-        losses++;
-        crystalNumber = 0;
-        crystalArray = [];
-        computerChoice = Math.floor(Math.random() * 102) + 19;
-        $("#computer-choice").text("Cp Choice" + computerChoice);
-        $("#user-losses").text("Losses: " + losses); 
+    else if (totalScore > targetNumber) {
+        losses++;   
+        $("#user-losses").text("Losses: " + losses);
+        // $('#crystals').empty(newCrystal);
+        reset();
     }
-    
 })
- 
+
 
